@@ -22,12 +22,20 @@ public class EmpresaDTO {
     private String abreviacao;
 
     public EmpresaDTO(Empresa empresa) {
-        this.id = empresa.getId();
-        this.razaoSocial = empresa.getRazaoSocial();
-        this.nomeFantasia = empresa.getNomeFantasia();
-        this.nomeCidade = empresa.getCidade().getNome();
-        this.nomeEstado = empresa.getCidade().getEstado().getNome();
-        this.abreviacao = empresa.getCidade().getEstado().getAbreviacao();
+        if (empresa.getCidade() != null) {
+            this.id = empresa.getId();
+            this.razaoSocial = empresa.getRazaoSocial();
+            this.nomeFantasia = empresa.getNomeFantasia();
+            this.nomeCidade = empresa.getCidade().getNome();
+            this.nomeEstado = empresa.getCidade().getEstado().getNome();
+            this.abreviacao = empresa.getCidade().getEstado().getAbreviacao();
+        } else {
+            this.nomeCidade = "Cidade não existe na base de dados";
+        }
+    }
+
+    public EmpresaDTO() {
+
     }
 
     public static Page<EmpresaDTO> converter(Page<Empresa> list) {

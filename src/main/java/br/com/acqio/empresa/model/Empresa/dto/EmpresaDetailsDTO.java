@@ -4,6 +4,8 @@ import br.com.acqio.empresa.model.Empresa.Empresa;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 public class EmpresaDetailsDTO {
@@ -18,6 +20,8 @@ public class EmpresaDetailsDTO {
     private String regimeTributario;
     private String cnaePrincipal;
     private String nire;
+    private LocalDate dataNire;
+    private LocalDate dataCadastro;
     private String email;
     private String telefone;
     private String celular;
@@ -26,6 +30,9 @@ public class EmpresaDetailsDTO {
     private String bairro;
     private String numero;
     private String complemento;
+    private Long codigoRevenda;
+    private Double aliquotaPis;
+    private Double aliquotaCofins;
 
     //Info Cidade
     private String nomeCidade;
@@ -45,6 +52,8 @@ public class EmpresaDetailsDTO {
         this.regimeTributario = empresa.getRegimeTributario();
         this.cnaePrincipal = empresa.getCnaePrincipal();
         this.nire = empresa.getNire();
+        this.dataNire = empresa.getDataNire();
+        this.dataCadastro = empresa.getDataCadastro();
         this.email = empresa.getEmail();
         this.telefone = empresa.getTelefone();
         this.celular = empresa.getCelular();
@@ -56,5 +65,8 @@ public class EmpresaDetailsDTO {
         this.nomeCidade = empresa.getCidade().getNome();
         this.nomeEstado = empresa.getCidade().getEstado().getNome();
         this.abreviacao = empresa.getCidade().getEstado().getAbreviacao();
+        this.codigoRevenda = empresa.getCodigoRevenda();
+        this.aliquotaPis = empresa.getAliquotaPis();
+        this.aliquotaCofins = empresa.getAliquotaCofins();
     }
 }

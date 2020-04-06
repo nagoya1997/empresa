@@ -63,10 +63,12 @@ public class EmpresaController {
     @Transactional
     public ResponseEntity<EmpresaDTO> register(@RequestBody @Valid EmpresaInsertForm form, UriComponentsBuilder uriComponentsBuilder) {
         Empresa empresa = form.converter(cidadeRepository);
-        empresaRepository.save(empresa);
-
-        URI uri = uriComponentsBuilder.path("/empresa/{id}").buildAndExpand(empresa.getId()).toUri();
-        return ResponseEntity.created(uri).body(new EmpresaDTO(empresa));
+        if(empresa.getCidade() != null){
+            empresaRepository.save(empresa);
+            URI uri = uriComponentsBuilder.path("/empresa/{id}").buildAndExpand(empresa.getId()).toUri();
+            return ResponseEntity.created(uri).body(new EmpresaDTO(empresa));
+        }
+        return ResponseEntity.badRequest().body(new EmpresaDTO(empresa));
     }
 
     @PutMapping("/{id}")

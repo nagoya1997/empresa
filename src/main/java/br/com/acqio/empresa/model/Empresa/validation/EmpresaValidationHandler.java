@@ -22,7 +22,7 @@ public class EmpresaValidationHandler {
 
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public List<EmpresaErrorDTO> handleNotValid(MethodArgumentNotValidException exception) {
+    public List<EmpresaErrorDTO> handleMissingValues(MethodArgumentNotValidException exception) {
         List<EmpresaErrorDTO> dto = new ArrayList<>();
         List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
         fieldErrors.forEach(e -> {
@@ -32,6 +32,5 @@ public class EmpresaValidationHandler {
         });
         return dto;
     }
-
 
 }

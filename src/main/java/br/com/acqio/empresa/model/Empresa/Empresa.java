@@ -42,11 +42,6 @@ public class Empresa {
     private Double aliquotaPis;
     private Double aliquotaCofins;
 
-    public Empresa(String razaoSocial, String nomeFantasia) {
-        this.razaoSocial = razaoSocial;
-        this.nomeFantasia = nomeFantasia;
-    }
-
     public Empresa() {
     }
 }

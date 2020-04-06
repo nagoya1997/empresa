@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -66,6 +67,15 @@ public class EmpresaInsertForm {
     @NotNull
     @NotEmpty
     private String complemento;
+    @NotNull
+    @NotEmpty
+    private String codigoRevenda;
+    @NotNull
+    @NotEmpty
+    private String aliquotaPis;
+    @NotNull
+    @NotEmpty
+    private String aliquotaCofins;
 
     //Info Cidade
     @NotNull
@@ -73,8 +83,11 @@ public class EmpresaInsertForm {
     private String nomeCidade;
 
     public Empresa converter(CidadeRepository cidadeRepository) {
-        Cidade cidade = cidadeRepository.findByNome(nomeCidade);
+        Optional<Cidade> cidade = cidadeRepository.findByNome(nomeCidade);
         Empresa empresa = new Empresa();
+        if(cidade.isPresent()){
+            empresa.setCidade(cidade.get());
+        }
         empresa.setRazaoSocial(razaoSocial);
         empresa.setNomeFantasia(nomeFantasia);
         empresa.setCnpj(cnpj);
@@ -94,7 +107,9 @@ public class EmpresaInsertForm {
         empresa.setBairro(bairro);
         empresa.setNumero(numero);
         empresa.setComplemento(complemento);
-        empresa.setCidade(cidade);
+        empresa.setCodigoRevenda(Long.parseLong(codigoRevenda));
+        empresa.setAliquotaPis(Double.parseDouble(aliquotaPis));
+        empresa.setAliquotaCofins(Double.parseDouble(aliquotaCofins));
         return empresa;
     }
 }
