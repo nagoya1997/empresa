@@ -1,6 +1,6 @@
-package br.com.acqio.empresa.model.Empresa.dto;
+package br.com.acqio.empresa.model.empresa.dto;
 
-import br.com.acqio.empresa.model.Empresa.Empresa;
+import br.com.acqio.empresa.model.empresa.Empresa;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.domain.Page;

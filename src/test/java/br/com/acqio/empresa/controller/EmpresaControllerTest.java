@@ -40,66 +40,92 @@ public class EmpresaControllerTest {
     }
 
     @Test
-    public void listAllCompaniesTest() throws Exception {
+    public void listAllCompaniesTest1() throws Exception {
         builder = MockMvcRequestBuilders.get("/empresa");
         this.mvc.perform(builder)
                 .andExpect(this.ok);
-
-        builder = MockMvcRequestBuilders.get("/emres");
-        this.mvc.perform(builder)
-                .andExpect(this.notFound);
-
-        builder = MockMvcRequestBuilders.get("/");
-        this.mvc.perform(builder)
-                .andExpect(this.notFound);
-
     }
 
     @Test
-    public void detailTest() throws Exception {
+    public void listAllCompaniesTest2() throws Exception {
+        builder = MockMvcRequestBuilders.get("/emres");
+        this.mvc.perform(builder)
+                .andExpect(this.notFound);
+    }
+
+    @Test
+    public void listAllCompaniesTest3() throws Exception {
+        builder = MockMvcRequestBuilders.get("/");
+        this.mvc.perform(builder)
+                .andExpect(this.notFound);
+    }
+
+    @Test
+    public void detailTest1() throws Exception {
         builder = MockMvcRequestBuilders.get("/empresa/1");
         this.mvc.perform(builder)
                 .andExpect(this.ok);
+    }
 
+    @Test
+    public void detailTest2() throws Exception {
         builder = MockMvcRequestBuilders.get("/empresa/@");
         this.mvc.perform(builder)
                 .andExpect(this.bad);
+    }
 
+    @Test
+    public void detailTest3() throws Exception {
         builder = MockMvcRequestBuilders.get("/empresa/*");
         this.mvc.perform(builder)
                 .andExpect(this.bad);
+    }
 
+    @Test
+    public void detailTest4() throws Exception {
         builder = MockMvcRequestBuilders.get("/empresa/-1");
         this.mvc.perform(builder)
                 .andExpect(this.notFound);
     }
 
     @Test
-    public void registerTest() throws Exception {
+    public void registerTest1() throws Exception {
         builder = MockMvcRequestBuilders.post("/empresa")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JunitWiseUtil.postEmpresaEntityJson());
         this.mvc.perform(builder)
                 .andExpect(this.created);
+    }
 
+    @Test
+    public void registerTest2() throws Exception {
         builder = MockMvcRequestBuilders.post("/empresa")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JunitWiseUtil.postEmpresaEntityJsonWithBlankFields());
         this.mvc.perform(builder)
                 .andExpect(this.bad);
+    }
 
+    @Test
+    public void registerTest3() throws Exception {
         builder = MockMvcRequestBuilders.post("/empresa")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JunitWiseUtil.postEmpresaEntityJsonWithMissingFields());
         this.mvc.perform(builder)
                 .andExpect(this.bad);
+    }
 
+    @Test
+    public void registerTest4() throws Exception {
         builder = MockMvcRequestBuilders.post("/empresa/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JunitWiseUtil.postEmpresaEntityJson());
         this.mvc.perform(builder)
                 .andExpect(this.allowed);
+    }
 
+    @Test
+    public void registerTest5() throws Exception {
         builder = MockMvcRequestBuilders.post("/empresa")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("");
@@ -108,43 +134,52 @@ public class EmpresaControllerTest {
     }
 
     @Test
-    public void updateTest() throws Exception {
+    public void updateTest1() throws Exception {
         builder = MockMvcRequestBuilders.put("/empresa/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JunitWiseUtil.putEmpresaEntityJson());
         this.mvc.perform(builder)
                 .andExpect(this.ok);
+    }
 
+    @Test
+    public void updateTest2() throws Exception {
         builder = MockMvcRequestBuilders.put("/empresa/*")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JunitWiseUtil.putEmpresaEntityJson());
         this.mvc.perform(builder)
                 .andExpect(this.bad);
+    }
 
+    @Test
+    public void updateTest3() throws Exception {
         builder = MockMvcRequestBuilders.put("/empresa/-1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JunitWiseUtil.putEmpresaEntityJson());
         this.mvc.perform(builder)
                 .andExpect(this.notFound);
+    }
 
+    @Test
+    public void updateTest4() throws Exception {
         builder = MockMvcRequestBuilders.put("/empresa/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JunitWiseUtil.putEmpresaEntityJsonWithBlankFields());
         this.mvc.perform(builder)
                 .andExpect(this.bad);
+    }
 
-        builder = MockMvcRequestBuilders.put("/empresa/1")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(JunitWiseUtil.putEmpresaEntityJsonWithMissingFields());
-        this.mvc.perform(builder)
-                .andExpect(this.bad);
-
+    @Test
+    public void updateTest5() throws Exception {
         builder = MockMvcRequestBuilders.put("/empresa")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JunitWiseUtil.putEmpresaEntityJson());
         this.mvc.perform(builder)
                 .andExpect(this.allowed);
+    }
 
+    @Test
+    public void updateTest6() throws Exception {
         builder = MockMvcRequestBuilders.put("/empresa/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("");
@@ -153,23 +188,31 @@ public class EmpresaControllerTest {
     }
 
     @Test
-    public void deleteTest() throws Exception {
+    public void deleteTest1() throws Exception {
         builder = MockMvcRequestBuilders.delete("/empresa/1");
         this.mvc.perform(builder)
                 .andExpect(this.ok);
+    }
 
+    @Test
+    public void deleteTest2() throws Exception {
         builder = MockMvcRequestBuilders.delete("/empresa/-1");
         this.mvc.perform(builder)
                 .andExpect(this.notFound);
+    }
 
+    @Test
+    public void deleteTest3() throws Exception {
         builder = MockMvcRequestBuilders.delete("/empresa/*");
         this.mvc.perform(builder)
                 .andExpect(this.bad);
+    }
 
+    @Test
+    public void deleteTest4() throws Exception {
         builder = MockMvcRequestBuilders.delete("/empresa");
         this.mvc.perform(builder)
                 .andExpect(this.allowed);
     }
-
 
 }

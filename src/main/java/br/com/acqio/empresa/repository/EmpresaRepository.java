@@ -1,7 +1,7 @@
 package br.com.acqio.empresa.repository;
 
 
-import br.com.acqio.empresa.model.Empresa.Empresa;
+import br.com.acqio.empresa.model.empresa.Empresa;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
-package br.com.acqio.empresa.model.Empresa;
+package br.com.acqio.empresa.model.empresa;
 
-import br.com.acqio.empresa.model.Cidade.Cidade;
+import br.com.acqio.empresa.model.cidade.Cidade;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,6 +42,4 @@ public class Empresa {
     private Double aliquotaPis;
     private Double aliquotaCofins;
 
-    public Empresa() {
-    }
 }

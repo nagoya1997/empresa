@@ -1,4 +1,4 @@
-package br.com.acqio.empresa.model.Empresa.dto;
+package br.com.acqio.empresa.model.empresa.dto;
 
 public class EmpresaErrorDTO {
 

@@ -1,6 +1,6 @@
-package br.com.acqio.empresa.model.Empresa.form;
+package br.com.acqio.empresa.model.empresa.form;
 
-import br.com.acqio.empresa.model.Empresa.Empresa;
+import br.com.acqio.empresa.model.empresa.Empresa;
 import br.com.acqio.empresa.repository.EmpresaRepository;
 import lombok.Getter;
 import lombok.Setter;

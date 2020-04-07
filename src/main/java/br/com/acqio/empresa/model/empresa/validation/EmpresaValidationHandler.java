@@ -1,6 +1,6 @@
-package br.com.acqio.empresa.model.Empresa.validation;
+package br.com.acqio.empresa.model.empresa.validation;
 
-import br.com.acqio.empresa.model.Empresa.dto.EmpresaErrorDTO;
+import br.com.acqio.empresa.model.empresa.dto.EmpresaErrorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;

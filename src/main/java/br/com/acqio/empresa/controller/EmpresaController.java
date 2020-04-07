@@ -1,10 +1,10 @@
 package br.com.acqio.empresa.controller;
 
-import br.com.acqio.empresa.model.Empresa.Empresa;
-import br.com.acqio.empresa.model.Empresa.dto.EmpresaDTO;
-import br.com.acqio.empresa.model.Empresa.dto.EmpresaDetailsDTO;
-import br.com.acqio.empresa.model.Empresa.form.EmpresaInsertForm;
-import br.com.acqio.empresa.model.Empresa.form.EmpresaUpdateForm;
+import br.com.acqio.empresa.model.empresa.Empresa;
+import br.com.acqio.empresa.model.empresa.dto.EmpresaDTO;
+import br.com.acqio.empresa.model.empresa.dto.EmpresaDetailsDTO;
+import br.com.acqio.empresa.model.empresa.form.EmpresaInsertForm;
+import br.com.acqio.empresa.model.empresa.form.EmpresaUpdateForm;
 import br.com.acqio.empresa.repository.CidadeRepository;
 import br.com.acqio.empresa.repository.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

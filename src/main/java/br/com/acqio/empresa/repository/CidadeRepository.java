@@ -1,6 +1,6 @@
 package br.com.acqio.empresa.repository;
 
-import br.com.acqio.empresa.model.Cidade.Cidade;
+import br.com.acqio.empresa.model.cidade.Cidade;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
